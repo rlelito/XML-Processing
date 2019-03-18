@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TVseriesList SYSTEM "TVseries.dtd">
+<?xml-stylesheet type="text/xsl" href="TVseries.xslt"?>
+
+<TVseriesList>
+	<TVseries type="onGoing">
+		<poster>https://m.media-amazon.com/images/M/MV5BMTExODIwOTUxNzFeQTJeQWpwZ15BbWU4MDE5MDA0MTcz._V1_SY1000_CR0,0,674,1000_AL_.jpg</poster>
+		<title type="original">The Punisher</title>
+		<release>2017 - present</release>
+		<seasons>2</seasons>
+		<episodes>26</episodes>
+	</TVseries>
+
+	<TVseries type="completed">
+		<poster>https://m.media-amazon.com/images/M/MV5BMTg3NTkwNzAxOF5BMl5BanBnXkFtZTcwMjM1NjI5MQ@@._V1_.jpg</poster>
+		<title type="original">Prison Break</title>
+		<title type="polish">Skazany na śmierć</title>
+		<release>2005 - 2017</release>
+		<seasons>5</seasons>
+		<episodes>91</episodes>
+	</TVseries>
+
+	<TVseries type="onGoing">
+		<poster>https://m.media-amazon.com/images/M/MV5BMzBlY2QzNzYtMWU1NS00NjFkLWJiMzItYmM3YTc4MDFjNDQwXkEyXkFqcGdeQXVyMTA0MjU0Ng@@._V1_SY1000_CR0,0,667,1000_AL_.jpg</poster>
+		<title type="original">La casa de papel</title>
+		<title type="polish">Dom z papieru</title>
+		<release>2017 - present</release>
+		<seasons>2</seasons>
+		<episodes>22</episodes>
+	</TVseries>
+
+	<TVseries type="completed">
+		<poster>https://m.media-amazon.com/images/M/MV5BMTYzMjA3OTgxOV5BMl5BanBnXkFtZTgwMjAwMDU5NjM@._V1_SY1000_CR0,0,675,1000_AL_.jpg</poster>
+		<title type="original">A Series of Unfortunate Events</title>
+		<title type="polish">Seria niefortunnych zdarzeń</title>
+		<release>2017 - 2019</release>
+		<seasons>3</seasons>
+		<episodes>25</episodes>
+	</TVseries>
+
+	<TVseries type="onGoing">
+		<poster>https://m.media-amazon.com/images/M/MV5BMjM0MDA2NDEzNF5BMl5BanBnXkFtZTgwODYzNjg4NTM@._V1_SY1000_CR0,0,666,1000_AL_.jpg</poster>
+		<title type="original">You</title>
+		<title type="polish">Ty</title>
+		<release>2018 - present</release>
+		<seasons>1</seasons>
+		<episodes>10</episodes>
+	</TVseries>
+
+	<TVseries type="completed">
+		<poster>https://m.media-amazon.com/images/M/MV5BMTgzNjAzMDE0NF5BMl5BanBnXkFtZTcwNTEyMzM3OA@@._V1_SY1000_CR0,0,736,1000_AL_.jpg</poster>
+		<title type="original">The Office</title>
+		<title type="polish">Biuro</title>
+		<release>2005 - 2013</release>
+		<seasons>9</seasons>
+		<episodes>188</episodes>
+	</TVseries>
+
+	<TVseries type="completed">
+		<poster>https://m.media-amazon.com/images/M/MV5BODcwOTg2MDE3NF5BMl5BanBnXkFtZTgwNTUyNTY1NjM@._V1_SY1000_CR0,0,675,1000_AL_.jpg</poster>
+		<title type="original">Daredevil</title>
+		<release>2015 - 2018</release>
+		<seasons>3</seasons>
+		<episodes>39</episodes>
+	</TVseries>
+
+	<TVseries type="onGoing">
+		<poster>https://m.media-amazon.com/images/M/MV5BMjRiNDRhNGUtMzRkZi00MThlLTg0ZDMtNjc5YzFjYmFjMmM4XkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_.jpg</poster>
+		<title type="original">Rick and Morty</title>
+		<release>2013 - present</release>
+		<seasons>3</seasons>
+		<episodes>32</episodes>
+	</TVseries>
+
+	<TVseries type="onGoing">
+		<poster>https://m.media-amazon.com/images/M/MV5BMjE3NTQ1NDg1Ml5BMl5BanBnXkFtZTgwNzY2NDA0MjI@._V1_SY1000_CR0,0,674,1000_AL_.jpg</poster>
+		<title type="original">Game of Thrones</title>
+		<title type="polish">Gra o tron</title>
+		<release>2011 - present</release>
+		<seasons>7</seasons>
+		<episodes>73</episodes>
+	</TVseries>
+
+	<TVseries type="onGoing">
+		<poster>https://m.media-amazon.com/images/M/MV5BMTU5NjQ2MTU4NV5BMl5BanBnXkFtZTgwOTYyNTAwNzM@._V1_SY1000_SX800_AL_.jpg</poster>
+		<title type="original">Gotham</title>
+		<release>2014 - present</release>
+		<seasons>5</seasons>
+		<episodes>100</episodes>
+	</TVseries>
+
+</TVseriesList>

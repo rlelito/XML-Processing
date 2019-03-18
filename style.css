@@ -1,0 +1,63 @@
+* {
+	font-family: Comic Sans MS;
+}
+
+#TVseriesContainer {
+	width: 1280px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+h1 {
+	text-shadow: 2px 2px lightgrey;
+}
+
+h2 {
+	width: 98.5%;
+	color: white;
+	text-align: center;
+	background-color: blue;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 25px;
+	text-shadow: 2px 2px 4px #000000;
+}
+
+table {
+	border: 3px solid gray;
+	border-radius: 15px;
+	width: 32%;
+	display: inline-block;
+	background-color: lightgrey;
+	margin-right: 0.5%;
+}
+td > img {
+	width: 166px;
+	height: 250px;
+	border-radius: 10px;
+}
+
+#line {
+	height: 28px;
+	vertical-align: top;
+}
+#original {
+	height: 90px;
+	vertical-align: top;
+	font-size: 20px;
+	text-align: center;
+	text-shadow: 2px 2px 0 #7A7A7A;
+}
+#polish {
+	height: 48px;
+	vertical-align: top;
+}
+
+#photo {
+	width: 176px;
+}
+
+
+#searchResult {
+	padding-top: 50px;
+}

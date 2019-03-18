@@ -1,0 +1,9 @@
+<!ELEMENT TVseriesList (TVseries+)>
+<!ELEMENT TVseries (title+,poster,release,seasons,episodes)>
+<!ATTLIST TVseries type CDATA #REQUIRED>
+<!ELEMENT title (#PCDATA)>
+<!ATTLIST title type (original|polish) #REQUIRED>
+<!ELEMENT poster (#PCDATA)>
+<!ELEMENT release (#PCDATA)>
+<!ELEMENT seasons (#PCDATA)>
+<!ELEMENT episodes (#PCDATA)>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<title>TV Series List - Main Page</title>
+	<style>
+		h1 {
+			font-size: 25px;
+			width: auto;
+		}
+		button, input{
+			font-size: 15px;
+			border-radius: 10px;
+			padding: 5px;
+			float:left;
+			margin-right:5px;
+		}
+	</style>
+</head>
+
+<body>
+
+<div id="TVseriesContainer">
+	<h1>TV Series List</h1>
+	<form action="TVseries.xml">
+		<button type="submit"><b>Show All content</b></button>
+	</form>
+	<button onclick="showOnGoing()" type="submit"><b>Show On going</b></button>
+	<button onclick="showCompleted()" type="submit"><b>Show Completed</b></button>
+	<input type="text" id="search" onkeyup="mySearch()" placeholder="Type title to search (original or polish)" style="width: 300px;">
+	<br />
+	<br />
+	<div id="searchResult" class="drag"></div>
+</div>
+
+
+<script>
+	//generating list of all TV series
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var TVseries = this.responseXML;
+			path = "//TVseries/title"
+			titleList = [];
+
+			var nodes = TVseries.evaluate(path, TVseries, null, XPathResult.ANY_TYPE, null);
+			var result = nodes.iterateNext();
+
+			var poz = 0;
+			while (result) {
+				if (result.getAttribute("type") != 'polish') {
+					poz++;
+				}
+				titleList.push([result.childNodes[0].nodeValue.toUpperCase(), poz]);
+				result = nodes.iterateNext();
+			}
+		}
+	};
+	xhttp.open("GET", "TVseries.xml", true);
+	xhttp.send();
+
+
+	//search for TV series which starts with entered string
+	function mySearch() {
+		var input = document.getElementById("search").value.toUpperCase();
+		msg = '';
+
+		pathList = [];
+		for (i = 0; i < titleList.length; i++) {
+			if (titleList[i][0].substring(0, input.length) === input && input != '') {
+				if (pathList.includes("//TVseries[" + titleList[i][1] + "]/*") == 0) {
+					pathList.push("//TVseries[" + titleList[i][1] + "]/*");
+				}
+			}
+		}
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				showSearch(this, pathList);
+			}
+		};
+		xhttp.open("GET", "TVseries.xml", true);
+		xhttp.send();
+	}
+	//showing searched TV shows
+	function showSearch(xml, path) {
+		var TVseries = xml.responseXML;
+		msg = '';
+
+		for (var i = 0; i < path.length; i++) {
+			var nodes = TVseries.evaluate(path[i], TVseries, null, XPathResult.ANY_TYPE, null);
+			var result = nodes.iterateNext();
+
+			while(result) {
+				//poster
+				msg += "<table><tr><td rowspan='5' id='photo'><img src='" + result.childNodes[0].nodeValue + "'/></td>";
+				result = nodes.iterateNext();
+				//title original
+				msg += "<td id='original'><b>" + result.childNodes[0].nodeValue  + "</b></td></tr>";
+				result = nodes.iterateNext();
+				//title polish
+				if (result.getAttribute("type") == 'polish') {
+					msg += "<tr><td id='polish'>Polish title: <i>" + result.childNodes[0].nodeValue  + "</i></td></tr>";
+					result = nodes.iterateNext();
+				} else {
+					msg += "<tr><td id='polish'></td></tr>";
+				}
+				//release
+				msg += "<tr><td id='line'>Release: " + result.childNodes[0].nodeValue + "</td></tr>";
+				result = nodes.iterateNext();
+				//seasons
+				msg += "<tr><td id='line'>Seasons: " + result.childNodes[0].nodeValue + "</td></tr>";
+				result = nodes.iterateNext();
+				//episodes
+				msg += "<tr><td id='line'>Episodes: " + result.childNodes[0].nodeValue + "</td></tr></table>";
+				result = nodes.iterateNext();
+			}
+		}
+
+		document.getElementById("searchResult").innerHTML = msg;
+	}
+
+
+   	function showOnGoing() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		    	showSeries(this, "//TVseries[@type='onGoing']/*");
+		    }
+		};
+		xhttp.open("GET", "TVseries.xml", true);
+		xhttp.send();
+	}
+   	function showCompleted() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		    	showSeries(this, "//TVseries[@type='completed']/*");
+		    }
+		};
+		xhttp.open("GET", "TVseries.xml", true);
+		xhttp.send();
+	}
+	//showing TV series for button "Show On going" and "Show Completed"
+	function showSeries(xml, path) {
+		var TVseries = xml.responseXML;
+		msg = '';
+		var nodes = TVseries.evaluate(path, TVseries, null, XPathResult.ANY_TYPE, null);
+		var result = nodes.iterateNext();
+
+		while(result) {
+			//poster
+			msg += "<table><tr><td rowspan='5' id='photo'><img src='" + result.childNodes[0].nodeValue + "'/></td>";
+			result = nodes.iterateNext();
+			//title original
+			msg += "<td id='original'><b>" + result.childNodes[0].nodeValue  + "</b></td></tr>";
+			result = nodes.iterateNext();
+			//title polish
+			if (result.getAttribute("type") == 'polish') {
+				msg += "<tr><td id='polish'>Polish title: <i>" + result.childNodes[0].nodeValue  + "</i></td></tr>";
+				result = nodes.iterateNext();
+			} else {
+				msg += "<tr><td id='polish'></td></tr>";
+			}
+			//release
+			msg += "<tr><td id='line'>Release: " + result.childNodes[0].nodeValue + "</td></tr>";
+			result = nodes.iterateNext();
+			//seasons
+			msg += "<tr><td id='line'>Seasons: " + result.childNodes[0].nodeValue + "</td></tr>";
+			result = nodes.iterateNext();
+			//episodes
+			msg += "<tr><td id='line'>Episodes: " + result.childNodes[0].nodeValue + "</td></tr></table>";
+			result = nodes.iterateNext();
+		}
+
+		document.getElementById("searchResult").innerHTML = msg;
+	}
+</script>
+
+</body>
+</html>
